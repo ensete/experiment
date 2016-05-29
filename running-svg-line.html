@@ -1,0 +1,104 @@
+<style>
+#svg-cross {
+	width: 220px;
+	height: 70px;
+	position: relative;
+}
+
+#svg-straight {
+	width: 200px;
+	height: 50px;
+	position: relative;
+	top: 10px;
+	left: 10px;
+	overflow: hidden;
+}
+
+svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	-webkit-transition: opacity .5s ease .3s;
+	transition: opacity .5s ease .3s;
+}
+
+line {
+	stroke-width: 3;
+	stroke: #000;
+	-webkit-transition: -webkit-transform .5s ease-out;
+	transition: transform .5s ease-out;
+}
+
+line.top, line.bottom {
+	stroke-dasharray: 200;
+}
+
+line.left, line.right {
+	stroke-dasharray: 50;
+}
+
+div:hover svg {
+	opacity: 1;
+	-webkit-transition: opacity .5s ease 0s;
+	transition: opacity .5s ease 0s;
+}
+
+div:hover line.top {
+	-webkit-transform: translateX(-400px);
+	transform: translateX(-400px);
+}
+
+div:hover line.left {
+	-webkit-transform: translateY(100px);
+	transform: translateY(100px);
+}
+
+div:hover line.bottom {
+	-webkit-transform: translateX(400px);
+	transform: translateX(400px);
+}
+
+div:hover line.right {
+	-webkit-transform: translateY(-100px);
+	transform: translateY(-100px);
+}
+
+div:hover line.top-left {
+	-webkit-transform: translate(12px, 12px);
+	transform: translate(12px, 12px);
+}
+
+div:hover line.bottom-left {
+	-webkit-transform: translate(12px, -12px);
+	transform: translate(12px, -12px);
+}
+
+div:hover line.bottom-right {
+	-webkit-transform: translate(-12px, -12px);
+	transform: translate(-12px, -12px);
+}
+
+div:hover line.top-right {
+	-webkit-transform: translate(-12px, 12px);
+	transform: translate(-12px, 12px);
+}
+
+</style>
+
+<div id="svg-cross">
+	<svg width="220" height="70">
+		<line class="top-left" x1="0" y1="0" x2="-10" y2="-10"/>
+		<line class="bottom-left" x1="0" y1="70" x2="-10" y2="80"/>
+		<line class="bottom-right" x1="220" y1="70" x2="230" y2="80"/>
+		<line class="top-right" x1="220" y1="0" x2="230" y2="-10"/>
+	</svg>
+	<div id="svg-straight">
+		<svg width="200" height="50">
+			<line class="top" x1="0" y1="0" x2="600" y2="0"/>
+			<line class="left" x1="0" y1="50" x2="0" y2="-100"/>
+			<line class="bottom" x1="200" y1="50" x2="-400" y2="50"/>
+			<line class="right" x1="200" y1="0" x2="200" y2="150"/>
+		</svg>
+	</div>
+</div>
